@@ -69,7 +69,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /catkin_ws/src
 
 # Set the working directory to the catkin workspace
-WORKDIR /catkin_ws
+WORKDIR /home
 
 # Set the entrypoint
 ENTRYPOINT ["/bin/bash"]
