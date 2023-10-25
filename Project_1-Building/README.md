@@ -4,11 +4,6 @@ Create a Gazebo world which includes a custom robot model and a Plugin to print 
 <img width="682" alt="image" src="https://github.com/huuanhhuynguyen/RoboND-Build-My-World/assets/49252525/26dbd01a-d56a-48cc-b8b6-8fc08dc89565">
 
 ## Build
-In order to build this project you would need to have installed:
-- ROS
-- CMAKE
-- GCC
-
 To build the script which prints the Welcome message follow the next steps:
 
 1. Create the build folder:
@@ -24,7 +19,7 @@ To build the script which prints the Welcome message follow the next steps:
     ```
     GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$PATH_TO_BUILD_FOLDER
     ```
-For example, if running in the workspace `export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/workspace/udacity_robot/build`
+For example, if running in the workspace `export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/gazebo-project/build`
 
 ## Launch the simulation
 1. In the Repository project folder, rum the following command to launch the simulation:

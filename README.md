@@ -1,29 +1,22 @@
-# gazebo_workshop
+# Gazebo Tutorials
 Gazebo tutorials
 
 ## Build
-Build the container with the following command:
+Build the given container with the following command:
 
   ```
   docker build -t ros-gazebo:16.04 .
   ```
 
 ## Launch
-Launch the container with the following command:
+Launch the container with the following usage of the provided script `run.sh`. Thse script contains two options to launch projects that required a `catkin_ws` and for projects that does not require it.
+
+- Launch a project without a `catkin_ws`:
   ```
-  docker run -it \
-    --privileged \
-    --gpus "all" \
-    --env="DISPLAY" \
-    --env="QT_X11_NO_MITSHM=1" \
-    --env="XAUTHORITY=/tmp/.docker.xauth" \
-    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --volume="/tmp/.docker.xauth:/tmp/.docker.xauth:rw" \
-    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --net=host \
-    -v /home/ekumen/Camilo_Repos/Udacity-Robotics-ND/catkin_ws/src:/catkin_ws/src\
-    ros-gazebo:16.04
+    ./run.sh ${PATH_TO_REPO}/gazebo_workshop/Project_1-Building/ cmake ros-gazebo:16.04
   ```
 
-
-./run.sh ~/Camilo_Repos/gazebo_workshop/Project_1-Building/ cmake ros-gazebo:16.04
+- Launch a project with a `catkin_ws`:
+  ```
+    ./run.sh ${PATH_TO_REPO}/gazebo_workshop/Project_2-Plugin/ catkin ros-gazebo:16.04
+  ```
