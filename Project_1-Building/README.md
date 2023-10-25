@@ -17,9 +17,9 @@ To build the script which prints the Welcome message follow the next steps:
     ```
 3. Add the build folder to the Gazebo plugin path:
     ```
-    GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$PATH_TO_BUILD_FOLDER
+    export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$PATH_TO_BUILD_FOLDER
     ```
-For example, if running in the workspace `export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/gazebo-project/build`
+For example, if running in the container `export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/gazebo-project/build`
 
 ## Launch the simulation
 1. In the Repository project folder, rum the following command to launch the simulation:

@@ -65,6 +65,10 @@ RUN apt-get update && apt-get install -y \
     ros-kinetic-urg-node \
     && apt-get install -y --fix-broken
 
+# Ignition dependencies to compile plugins
+RUN apt-get update && apt-get install -y \
+    libignition-math4-dev
+
 # Create a catkin workspace
 RUN mkdir -p /catkin_ws/src
 
