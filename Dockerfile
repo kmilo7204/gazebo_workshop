@@ -14,8 +14,10 @@ RUN apt-get update && apt-get install -y \
     wget \
     xterm
 
-# Setup ROS kinetic sources.list
-RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+# Register the ROS package sources.
+ENV UBUNTU_RELEASE=xenial
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $UBUNTU_RELEASE main" > /etc/apt/sources.list.d/ros-latest.list'
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
 # Add ROS repository key
 RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
@@ -26,12 +28,6 @@ RUN apt-get update && apt-get install -y \
 
 # Setup ROS environment variables
 RUN echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-
-RUN sudo apt install wget
-
-RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-RUN wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-RUN curl -k 'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub' | apt-key add -
 
 # Upgrade Gazebo 7.
 RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
