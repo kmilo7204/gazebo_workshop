@@ -10,6 +10,9 @@ PROJECT_FOLDER=$1
 BUILD_METHOD=$2
 DOCKER_IMAGE=$3
 
+# Create Nvidia branch
+# Create run without GPUs
+
 # Additional Docker options
 DOCKER_OPTIONS="--privileged \
 --gpus 0 \
