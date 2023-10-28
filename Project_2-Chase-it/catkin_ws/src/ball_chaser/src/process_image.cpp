@@ -2,22 +2,19 @@
 #include "ball_chaser/DriveToTarget.h"
 #include <sensor_msgs/Image.h>
 
-// Define a global client that can request services
 ros::ServiceClient client;
 
 // This function calls the command_robot service to drive the robot in the specified direction
 void drive_robot(float lin_x, float ang_z)
 {
-    ROS_INFO("Receiving Robot movement");
-    
-    // Request a service and pass the velocities to it to drive the robot
+    // Call the service and send the velocities to it to drive the robot
     ball_chaser::DriveToTarget srv;
     srv.request.linear_x = lin_x;
     srv.request.angular_z = ang_z;
 
     if( !client.call(srv) )
     {
-      ROS_ERROR("Failed to call drive_robot Service");
+        ROS_ERROR("Failed to call drive_robot Service");
     }
 }
 
@@ -33,7 +30,7 @@ void process_image_callback(const sensor_msgs::Image img)
         uint8_t red = img.data[i];
         uint8_t green = img.data[i + 1];
         uint8_t blue = img.data[i + 2];
-        // Red channel
+        // If white pixel
         if ( red == 255 && green == 255 && blue == 255 )
         {
             ball_found = true;
@@ -62,7 +59,7 @@ void process_image_callback(const sensor_msgs::Image img)
             return;
         }
     }
-    
+
     // Request a stop when there's no white ball seen by the camera
     if (!ball_found)
     {
@@ -73,7 +70,6 @@ void process_image_callback(const sensor_msgs::Image img)
 
 int main(int argc, char** argv)
 {
-    // Initialize the process_image node and create a handle to it
     ros::init(argc, argv, "process_image");
     ros::NodeHandle n;
 
@@ -82,9 +78,7 @@ int main(int argc, char** argv)
 
     // Subscribe to /camera/rgb/image_raw topic to read the image data inside the process_image_callback function
     ros::Subscriber subscriber = n.subscribe<sensor_msgs::Image>("/camera/rgb/image_raw", 10, process_image_callback);
-    
-    // Handle ROS communication events
-    ros::spin();
 
+    ros::spin();
     return 0;
 }

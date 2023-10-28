@@ -3,6 +3,35 @@ Create a Gazebo world which includes a custom robot model and a Plugin to print 
 
 <img width="682" alt="image" src="https://github.com/huuanhhuynguyen/RoboND-Build-My-World/assets/49252525/26dbd01a-d56a-48cc-b8b6-8fc08dc89565">
 
+## Project structure
+### Models
+Models folder contains all the Gazebo models we created with the Gazebo model/building editor. For this specific case:
+
+```
+└── models
+    └── building
+        ├── model.config
+        └── model.sdf
+    └──robot
+        ├── model.con
+        └── model.sdf
+```
+
+### Scripts
+Scripts folder contains all the code that will be executed in this simulation. For this specific case it is not required to have a `catkin_ws`, since there is no interaction with ROS; however, there is a simple plugin that will print a Welcome message in the console when the simulation is launched.
+
+```
+└── scripts
+    └── welcome_msg.cpp
+```
+
+### World
+World folder contains the Gazebo worlds, wich are made up with the previous created models.
+```
+└── world
+    └── office.world
+```
+
 ## Build
 To build the script which prints the Welcome message follow the next steps:
 
