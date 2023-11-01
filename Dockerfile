@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-FROM nvidia/cudagl:11.3.0-devel-ubuntu20.04
-=======
->>>>>>> 5440f43 (Adding Ubuntu 20.04 option)
-
-# Use the official Ubuntu 20.04 as the base image
 FROM ubuntu:20.04
 
 # Set non-interactive mode during installation
