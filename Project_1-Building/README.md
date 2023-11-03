@@ -53,5 +53,5 @@ For example, if running in the container `export GAZEBO_PLUGIN_PATH=${GAZEBO_PLU
 ## Launch the simulation
 1. In the Repository project folder, rum the following command to launch the simulation:
     ```
-    gazebo world/Office
+    gazebo world/office.world
     ```

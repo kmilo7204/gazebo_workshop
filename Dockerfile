@@ -1,14 +1,18 @@
 FROM ubuntu:20.04
 
-# Set non-interactive mode during installation
-ENV DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
-# Update the package list and install essential packages
+# Install essential packages
 RUN apt-get update && apt-get install -y \
-    sudo \
-    gnupg \
+    build-essential \
+    cmake \
+    curl \
+    git \
+    gnupg2 \
     lsb-release \
-    curl
+    sudo \
+    wget \
+    xterm
 
 # Set up the ROS keys
 RUN curl -sSL http://packages.ros.org/ros.key | apt-key add -
@@ -37,9 +41,3 @@ WORKDIR /home
 
 # Set the entrypoint
 ENTRYPOINT ["/bin/bash"]
-
-# # Expose Gazebo default port
-# EXPOSE 11345
-
-# # Start a shell by default
-# CMD ["bash"]
