@@ -8,7 +8,7 @@ namespace gazebo
             // Constructor
             WelcomePlugin() : WorldPlugin()
             {
-                printf("Welcome to Camilo's Office simulation!\n");
+                printf("Welcome to Camilo's World simulation!\n");
             }
         public:
             void Load(physics::WorldPtr _world, sdf::ElementPtr _sdf) {}
