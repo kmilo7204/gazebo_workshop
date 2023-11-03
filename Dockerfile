@@ -26,14 +26,6 @@ RUN apt-get update && apt-get install -y \
 # Setup ROS environment variables
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 
-# Install Gazebo
-RUN apt-get update && apt-get install -y \
-    gazebo11
-
-# Ignition dependencies to compile plugins
-RUN apt-get update && apt-get install -y \
-    libignition-math4-dev
-
 # Create a catkin workspace
 RUN mkdir -p /catkin_ws/src
 
