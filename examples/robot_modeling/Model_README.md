@@ -1,8 +1,10 @@
 # Gazebo Robot Modeling and Simulation Examples
 This document provides three examples of robot modeling and simulation using URDF, Xacro, and SDF. Each example illustrates a specific step in the process.
 
-## 1. URDF (Unified Robot Description Format)
+## Model a basic robot
+In this section we will model a robot using three different file types.
 
+### 1. URDF (Unified Robot Description Format)
 URDF is used to describe the structure, kinematics, and visual representation of robot models in a standardized way. The example shows a simple differential drive mobile robot
 
 - **File:** `mobile_robot.urdf`
@@ -53,7 +55,7 @@ URDF is used to describe the structure, kinematics, and visual representation of
   </robot>
   ```
 
-## 2. Xacro
+### 2. Xacro
 Xacro is used to modularize and improve the readability of URDF files. The example demonstrates the use of Xacro to create macros for the robot's wheels and joints, making the URDF file more concise and organized:
 
 - **File:** `mobile_robot.urdf`
@@ -97,7 +99,7 @@ Xacro is used to modularize and improve the readability of URDF files. The examp
   </macro>
   ```
 
-## 3. SDF (Simulation Description Format)
+### 3. SDF (Simulation Description Format)
 SDF files are used to describe simulation worlds, including models, lighting, and physics properties. The example creates a Gazebo world with a ground plane and the mobile robot model:
   - **File:** `simulation.world`
   ```xml
